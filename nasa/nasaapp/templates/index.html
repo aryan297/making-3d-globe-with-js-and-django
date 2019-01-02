@@ -1,0 +1,119 @@
+<html>
+    {% load staticfiles %}
+    <script src="{% static 'js/ryan.js' %}"></script>
+    
+    <style>
+        * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background-color: #000414;
+  perspective: 1000px;
+}
+
+#stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  heigth: 100%;
+}
+
+#stars .star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+#asters_wrap {
+  position: relative;
+  left: 10px;
+  top: 100px;
+  width: 100%;
+  transform: rotate(25deg);
+  transform-style: preserve-3d;
+}
+
+.moon_wrap {
+  position: absolute;
+  top: 50px;
+  left: 202px;
+  width: 300px;
+  transform-origin: right center;
+  animation: rotate 8s infinite linear;
+  transform-style: preserve-3d;
+}
+
+.moon {
+  position: relative;
+  margin-top: 90px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  background: url('http://www.jpl.nasa.gov/spaceimages/images/largesize/PIA12577_hires.jpg');
+  background-size: 190px 100%;
+  animation: spin 10s infinite linear, rotate 8s infinite linear reverse;
+}
+
+.earth {
+  position: absolute;
+  top: 90px;
+  left: 475px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: url('https://encrypted-tbn3.google.com/images?q=tbn:ANd9GcTQqoB4xBnIkmUg5pxDyYW2h0Q1pRTsbQBOfhg-E-y4iLFicsyi');
+  background-size: 230px 100%;
+  transform: rotate(4deg);
+  animation: spin 8s infinite linear;
+}
+
+.earth:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 130px 20px, rgba(255,255,255,0.7), #000);
+  mix-blend-mode: overlay;
+}
+
+@keyframes rotate {
+  from {transform: rotateY(0deg);}
+  to {transform: rotateY(359deg);}
+}
+
+@keyframes spin {
+  from {background-position: 0px;}
+  to {background-position: 230px;}
+}
+    
+    </style>
+    
+    
+    
+<body>
+    
+    
+    
+    
+
+
+<div id="stars"></div>
+<div id="asters_wrap">
+  <div class="earth"></div>
+  <div class="moon_wrap">
+    <div class="moon"></div>
+  </div>
+</div>
+    </body>
+</html>
